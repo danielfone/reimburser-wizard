@@ -1,33 +1,32 @@
-<%= form_for(@reimbursement) do |f| %>
-  <% if @reimbursement.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@reimbursement.errors.count, "error") %> prohibited this reimbursement from being saved:</h2>
-
-      <ul>
-      <% @reimbursement.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @reimbursement, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :reference, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :reference, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :payee_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :payee_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :comments, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :comments, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :data, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :data, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :reference %><br>
-    <%= f.text_field :reference %>
-  </div>
-  <div class="field">
-    <%= f.label :payee %><br>
-    <%= f.text_field :payee %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %><br>
-    <%= f.text_area :comments %>
-  </div>
-  <div class="field">
-    <%= f.label :data %><br>
-    <%= f.text_area :data %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                reimbursements_path, :class => 'btn' %>
   </div>
 <% end %>
