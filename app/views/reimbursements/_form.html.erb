@@ -19,12 +19,31 @@
       <%= f.text_area :comments, :class => 'text_field', rows: 5 %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :data, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :data, :class => 'text_field' %>
-    </div>
-  </div>
+
+  <fieldset>
+    <legend>Line Items</legend>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Detail</th>
+          <th>Code</th>
+          <th>Dept/Project</th>
+          <th>Amount</th>
+          <th>GST?</th>
+        </tr>        
+      </thead>
+      <%- @reimbursement.line_items << LineItem.new -%>
+      <%= f.fields_for :line_items do |ff| %>
+        <tr>
+          <td><%= ff.text_field :detail %></td>
+          <td><%= ff.select :code, ['Overheads', 'Misc'], prompt: true %></td>
+          <td><%= ff.select :dept, ['Sales', 'Engineering', 'R & D'], prompt: true %></td>
+          <td><%= ff.number_field :amount, step: 0.01 %></td>
+          <td><%= ff.check_box :gst %></td>
+        </tr>
+      <%- end -%>
+    </table>
+  </fieldset>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
