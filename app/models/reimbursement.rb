@@ -3,4 +3,8 @@ class Reimbursement < ActiveRecord::Base
 
   validates :payee_id, presence: true
 
+  def line_items
+    @line_items ||= []
+  end
+
 end

@@ -14,6 +14,31 @@
   <dd><%= @reimbursement.data %></dd>
 </dl>
 
+<h3>Line Items</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Detail</th>
+      <th>Code</th>
+      <th>Dept/Project</th>
+      <th>Amount</th>
+      <th>GST?</th>
+    </tr>        
+  </thead>
+  <%- @reimbursement.line_items.each do |li| %>
+    <tr>
+      <td><%= li.detail %></td>
+      <td><%= li.code %></td>
+      <td><%= li.dept %></td>
+      <td><%= number_to_currency li.amount %></td>
+      <td><%= li.gst == '1' %></td>
+    </tr>
+  <%- end -%>
+</table>
+<%- if @reimbursement.line_items.none? -%>
+  <p class="muted">No line items</p>
+<% end %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               reimbursements_path, :class => 'btn'  %>
