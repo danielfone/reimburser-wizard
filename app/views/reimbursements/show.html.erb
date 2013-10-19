@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reference:</strong>
+  <%= @reimbursement.reference %>
+</p>
+
+<p>
+  <strong>Payee:</strong>
+  <%= @reimbursement.payee %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @reimbursement.comments %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @reimbursement.data %>
+</p>
+
+<%= link_to 'Edit', edit_reimbursement_path(@reimbursement) %> |
+<%= link_to 'Back', reimbursements_path %>
