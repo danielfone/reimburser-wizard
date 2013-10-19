@@ -69,6 +69,6 @@ class ReimbursementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reimbursement_params
-      params.require(:reimbursement).permit(:reference, :payee_id, :comments, :data)
+      params.require(:reimbursement)
     end
 end
