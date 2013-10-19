@@ -19,7 +19,7 @@
       <tr>
         <td><%= link_to reimbursement.id, reimbursement_path(reimbursement) %></td>
         <td><%= reimbursement.reference %></td>
-        <td><%= reimbursement.payee_id %></td>
+        <td><%= reimbursement.payee.name %></td>
         <td><%= reimbursement.comments %></td>
         <td><%= reimbursement.data %></td>
         <td><%=l reimbursement.created_at %></td>

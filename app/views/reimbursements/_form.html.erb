@@ -1,3 +1,5 @@
+<%= render 'shared/errors', object: @reimbursement %>
+
 <%= form_for @reimbursement, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :reference, :class => 'control-label' %>
@@ -8,7 +10,7 @@
   <div class="control-group">
     <%= f.label :payee_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :payee_id, :class => 'text_field' %>
+      <%= f.collection_select :payee_id, Employee.all, :id, :name, prompt: 'Select employee...' %>
     </div>
   </div>
   <div class="control-group">

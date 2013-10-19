@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:reference) %>:</strong></dt>
   <dd><%= @reimbursement.reference %></dd>
   <dt><strong><%= model_class.human_attribute_name(:payee_id) %>:</strong></dt>
-  <dd><%= @reimbursement.payee_id %></dd>
+  <dd><%= @reimbursement.payee.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:comments) %>:</strong></dt>
   <dd><%= @reimbursement.comments %></dd>
   <dt><strong><%= model_class.human_attribute_name(:data) %>:</strong></dt>
