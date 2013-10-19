@@ -1,0 +1,10 @@
+<% if object.errors.any? %>
+  <div class="alert alert-error">
+    <a class="close" data-dismiss="alert">&#215;</a>
+    <ul>
+      <% object.errors.full_messages.each do |msg| %>
+        <%= content_tag :li, msg %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
