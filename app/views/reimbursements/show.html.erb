@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:payee_id) %>:</strong></dt>
   <dd><%= @reimbursement.payee.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:comments) %>:</strong></dt>
-  <dd><%= @reimbursement.comments %></dd>
+  <dd><%= simple_format @reimbursement.comments %></dd>
   <dt><strong><%= model_class.human_attribute_name(:data) %>:</strong></dt>
   <dd><%= @reimbursement.data %></dd>
 </dl>
